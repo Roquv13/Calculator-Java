@@ -1,19 +1,24 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        int a = 5;
-        int b = 10;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Write first number to calculations:");
+        int a = sc.nextInt();
+        System.out.println("Write second number to calculations:");
+        int b = sc.nextInt();
 
         //Addition
         int sum = a + b;
-        System.out.println(sum);
+        System.out.println("Result of sum numbers " + a + " and " + b + ": " + sum);
         //Difference
         int diff = a - b;
-        System.out.println(diff);
+        System.out.println("Result of difference numbers " + a + " and " + b + ": " + diff);
         //Multiplication
         int multi = a * b;
-        System.out.println(multi);
+        System.out.println("Result of multiplication numbers " + a + " and " + b + ": " + multi);
         //Division
         int div = a / b;
-        System.out.println(div);
+        System.out.println("Result of division numbers " + a + " and " + b + ": " + div);
     }
 }
