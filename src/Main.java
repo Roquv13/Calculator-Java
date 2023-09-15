@@ -3,14 +3,19 @@ import java.util.Scanner;
 class Numbers {
     int a;
     int b;
+    int c;
+    Scanner sc = new Scanner(System.in);
     public void scanA() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Write first number for calculations:");
         a = sc.nextInt();
-    }public void scanB() {
-        Scanner sc = new Scanner(System.in);
+    }
+    public void scanB() {
         System.out.println("Write second number for calculations:");
         b = sc.nextInt();
+    }
+    public void scanC() {
+        System.out.println("Write second number for calculations:");
+        c = sc.nextInt();
     }
 }
 
@@ -36,10 +41,24 @@ class BasicMath {
         System.out.println("Result of division numbers " + a + " and " + b + ": " + result);
     }
 }
+
+class AdvancedMath {
+    //Exponentiation
+    public void exp(int a, int b) {
+        double result = Math.pow(a, b);
+        System.out.println("Result of exponentiation number " + a + " to the power of " + b + ": " + result);
+    }
+    //Square
+    public void root(int a, int b) {
+        double result = Math.pow(a, 1/b);
+        System.out.println("Result of taking a " + b + " degree square root of a number " + a + ": " + result);
+    }
+}
 public class Main {
     public static void main(String[] args) {
         Numbers num = new Numbers();
         BasicMath math = new BasicMath();
+        AdvancedMath mathAdv = new AdvancedMath();
         num.scanA();
         num.scanB();
 
@@ -47,5 +66,7 @@ public class Main {
         math.diff(num.a, num.b);
         math.multi(num.a, num.b);
         math.div(num.a, num.b);
+        mathAdv.exp(num.a, num.b);
+        mathAdv.root(num.a, num.b);
     }
 }
