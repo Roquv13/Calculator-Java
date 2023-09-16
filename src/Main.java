@@ -13,44 +13,71 @@ class OperCheck {
         System.out.println("4. Division");
         System.out.println("5. Exponentiation");
         System.out.println("6. Root of number");
+        System.out.println("7. Exit");
     }
 
-    public void OperCheck() {
+    public void Check() {
         while (true) {
+            OperList();
             System.out.println("Select from list: ");
             int userSel = sc.nextInt();
             if (userSel == 1) {
                 num.scanA();
                 num.scanB();
                 math.add(num.a, num.b);
-                break;
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
             } else if (userSel == 2) {
                 num.scanA();
                 num.scanB();
                 math.diff(num.a, num.b);
-                break;
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
             } else if (userSel == 3) {
                 num.scanA();
                 num.scanB();
                 math.multi(num.a, num.b);
-                break;
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
             } else if (userSel == 4) {
                 num.scanA();
                 num.scanB();
                 math.div(num.a, num.b);
-                break;
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
             } else if (userSel == 5) {
                 num.scanA();
                 num.scanB();
                 mathAdv.exp(num.a, num.b);
-                break;
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
             } else if (userSel == 6) {
                 num.scanA();
                 num.scanB();
                 mathAdv.root(num.a, num.b);
+                NextOper();
+                int nextOperation  = sc.nextInt();
+                if(ret(nextOperation)) break;
+            } else if (userSel == 7) {
                 break;
-            } else;
+            } else System.out.println("Write again.");
         }
+    }
+    public void NextOper() {
+        System.out.println("Do you want to do next operation?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        System.out.println("Select: ");
+    }
+    public boolean ret(int x) {
+        if (x == 2) {
+            return true;
+        } else return false;
     }
 }
 class Numbers {
@@ -111,7 +138,6 @@ class AdvancedMath {
 public class Main {
     public static void main(String[] args) {
         OperCheck opCheck = new OperCheck();
-        opCheck.OperList();
-        opCheck.OperCheck();
+        opCheck.Check();
     }
 }
