@@ -1,5 +1,58 @@
 import java.util.Scanner;
 
+class OperCheck {
+    Scanner sc = new Scanner(System.in);
+    Numbers num = new Numbers();
+    BasicMath math = new BasicMath();
+    AdvancedMath mathAdv = new AdvancedMath();
+    public void OperList() {
+        System.out.println("What do you want to do?");
+        System.out.println("1. Add");
+        System.out.println("2. Difference");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+        System.out.println("5. Exponentiation");
+        System.out.println("6. Root of number");
+    }
+
+    public void OperCheck() {
+        while (true) {
+            System.out.println("Select from list: ");
+            int userSel = sc.nextInt();
+            if (userSel == 1) {
+                num.scanA();
+                num.scanB();
+                math.add(num.a, num.b);
+                break;
+            } else if (userSel == 2) {
+                num.scanA();
+                num.scanB();
+                math.diff(num.a, num.b);
+                break;
+            } else if (userSel == 3) {
+                num.scanA();
+                num.scanB();
+                math.multi(num.a, num.b);
+                break;
+            } else if (userSel == 4) {
+                num.scanA();
+                num.scanB();
+                math.div(num.a, num.b);
+                break;
+            } else if (userSel == 5) {
+                num.scanA();
+                num.scanB();
+                mathAdv.exp(num.a, num.b);
+                break;
+            } else if (userSel == 6) {
+                num.scanA();
+                num.scanB();
+                mathAdv.root(num.a, num.b);
+                break;
+            } else;
+        }
+    }
+}
 class Numbers {
     int a;
     int b;
@@ -44,9 +97,10 @@ class BasicMath {
 
 class AdvancedMath {
     //Exponentiation
-    public void exp(int a, int b) {
+    public void exp(float a, float b) {
         double result = Math.pow(a, b);
         System.out.println("Result of exponentiation number " + a + " to the power of " + b + ": " + result);
+        //System.out.println(String.format("Result of exponentiation number %s to the power of %s: %s", a, b, result));
     }
     //Square
     public void root(int a, int b) {
@@ -56,17 +110,8 @@ class AdvancedMath {
 }
 public class Main {
     public static void main(String[] args) {
-        Numbers num = new Numbers();
-        BasicMath math = new BasicMath();
-        AdvancedMath mathAdv = new AdvancedMath();
-        num.scanA();
-        num.scanB();
-
-        math.add(num.a, num.b);
-        math.diff(num.a, num.b);
-        math.multi(num.a, num.b);
-        math.div(num.a, num.b);
-        mathAdv.exp(num.a, num.b);
-        mathAdv.root(num.a, num.b);
+        OperCheck opCheck = new OperCheck();
+        opCheck.OperList();
+        opCheck.OperCheck();
     }
 }
